@@ -1,3 +1,4 @@
+const fontSize = document.getElementById("font-size");
 const saveBtn = document.getElementById("save");
 const textInput = document.getElementById("text");
 const fileInput = document.getElementById("file");
@@ -97,7 +98,6 @@ function onDoubleClick(event) {
   if (text !== "") {    
     ctx.save();
     ctx.lineWidth = 1;
-    ctx.font = "60px serif";
     ctx.fillText(text, event.offsetX, event.offsetY);
     ctx.restore();
   }
@@ -111,7 +111,10 @@ function onSaveClick() {
   a.click();
 }
 
-
+function onFontSizeChange(event) {
+  const size = event.target.value;
+  ctx.font = `${size}px serif`;
+}
 
 canvas.addEventListener("dblclick", onDoubleClick);
 canvas.addEventListener("mousemove", onMove);
@@ -130,3 +133,4 @@ destroyBtn.addEventListener("click", onDestroyClick);
 eraserBtn.addEventListener("click", onEraserClick);
 fileInput.addEventListener("change", onFileChange);
 saveBtn.addEventListener("click", onSaveClick);
+fontSize.addEventListener("change", onFontSizeChange);

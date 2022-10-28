@@ -81,3 +81,9 @@ input#text {
 input#file {
   display: none;
 }
+
+span {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
